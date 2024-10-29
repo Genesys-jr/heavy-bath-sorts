@@ -4,6 +4,7 @@ import { authCredentials } from "@/providers";
 
 export const LoginPage = () => {
   return (
+    // atoms and molecules stuff 
     <AuthPage
       type="login"
       registerLink={false}
