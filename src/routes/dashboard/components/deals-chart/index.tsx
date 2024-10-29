@@ -47,19 +47,19 @@ export const DashboardDealsChart = () => {
       },
     },
     tooltip: {
-      formatter: (data: { state: any; value: any; }) => {
+      formatter: (data: { state: any; value: any }) => {
         return {
           name: data.state,
           value: `$${Number(data.value) / 1000}k`,
         };
       },
     },
-    areaStyle: (datum: { state: string; }) => {
+    areaStyle: (datum: { state: string }) => {
       const won = "l(270) 0:#ffffff 0.5:#b7eb8f 1:#52c41a";
       const lost = "l(270) 0:#ffffff 0.5:#f3b7c2 1:#ff4d4f";
       return { fill: datum.state === "Won" ? won : lost };
     },
-    color: (datum: { state: string; }) => {
+    color: (datum: { state: string }) => {
       return datum.state === "Won" ? "#52C41A" : "#F5222D";
     },
   };
