@@ -41,25 +41,25 @@ export const DashboardDealsChart = () => {
     yAxis: {
       tickCount: 4,
       label: {
-        formatter: (v) => {
+        formatter: (v: any) => {
           return `$${Number(v) / 1000}k`;
         },
       },
     },
     tooltip: {
-      formatter: (data) => {
+      formatter: (data: { state: any; value: any; }) => {
         return {
           name: data.state,
           value: `$${Number(data.value) / 1000}k`,
         };
       },
     },
-    areaStyle: (datum) => {
+    areaStyle: (datum: { state: string; }) => {
       const won = "l(270) 0:#ffffff 0.5:#b7eb8f 1:#52c41a";
       const lost = "l(270) 0:#ffffff 0.5:#f3b7c2 1:#ff4d4f";
       return { fill: datum.state === "Won" ? won : lost };
     },
-    color: (datum) => {
+    color: (datum: { state: string; }) => {
       return datum.state === "Won" ? "#52C41A" : "#F5222D";
     },
   };
@@ -77,7 +77,6 @@ export const DashboardDealsChart = () => {
             gap: "8px",
           }}
         >
-          {/* @ts-expect-error Ant Design Icon's v5.0.1 has an issue with @types/react@^18.2.66 */}
           <DollarOutlined />
           <Text
             size="sm"
